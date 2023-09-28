@@ -1,0 +1,32 @@
+﻿using SampleMonitoringProj.Models;
+
+namespace SampleMonitoringProj.Services
+{
+    public class CourseService : ICourseService
+    {
+        public void Create(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Course Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Course> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(int id, Course course)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
