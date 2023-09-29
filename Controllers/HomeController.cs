@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SampleMonitoringProj.Models;
+using OnlineLearningPlatformGroup5.Models;
 using System.Diagnostics;
 
-namespace SampleMonitoringProj.Controllers
+namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class HomeController : Controller
     {

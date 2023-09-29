@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using SampleMonitoringProj.Models;
-using SampleMonitoringProj.Services;
+using OnlineLearningPlatformGroup5.Models;
+using OnlineLearningPlatformGroup5.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

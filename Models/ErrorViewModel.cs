@@ -1,4 +1,4 @@
-namespace SampleMonitoringProj.Models
+namespace OnlineLearningPlatformGroup5.Models
 {
     public class ErrorViewModel
     {

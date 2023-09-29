@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SampleMonitoringProj.Models
+namespace OnlineLearningPlatformGroup5.Models
 {
     public class DatabaseContext : DbContext
     {

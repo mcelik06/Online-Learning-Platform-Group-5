@@ -1,6 +1,6 @@
-﻿using SampleMonitoringProj.Models;
+﻿using OnlineLearningPlatformGroup5.Models;
 
-namespace SampleMonitoringProj.Services
+namespace OnlineLearningPlatformGroup5.Services
 {
     public class UserService : IUserService
     {

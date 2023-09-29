@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SampleMonitoringProj.Models;
+using OnlineLearningPlatformGroup5.Models;
 
 #nullable disable
 
-namespace SampleMonitoringProj.Migrations
+namespace OnlineLearningPlatformGroup5.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     partial class DatabaseContextModelSnapshot : ModelSnapshot

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SampleMonitoringProj.Services;
+using OnlineLearningPlatformGroup5.Services;
 
-namespace SampleMonitoringProj.Controllers
+namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class CourseController : Controller
     {

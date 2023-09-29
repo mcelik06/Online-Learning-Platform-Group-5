@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SampleMonitoringProj.Models;
+using OnlineLearningPlatformGroup5.Models;
 
 #nullable disable
 
-namespace SampleMonitoringProj.Migrations
+namespace OnlineLearningPlatformGroup5.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20230928075847_InitialCreate")]

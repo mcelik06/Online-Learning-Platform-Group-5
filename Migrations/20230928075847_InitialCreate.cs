@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace SampleMonitoringProj.Migrations
+namespace OnlineLearningPlatformGroup5.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
