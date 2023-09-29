@@ -6,10 +6,10 @@ namespace OnlineLearningPlatformGroup5.Models
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> opts) : base(opts) { }
 
-        public DbSet<Course> courses { get; set; }
-        public DbSet<User> users { get; set; }
-        public DbSet<Assignment> assignments { get; set; }
-        public DbSet<Enrollment> enrollments { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
 
     }
 }
