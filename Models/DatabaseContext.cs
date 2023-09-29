@@ -8,6 +8,8 @@ namespace OnlineLearningPlatformGroup5.Models
 
         public DbSet<Course> courses { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<Assignment> assignments { get; set; }
+        public DbSet<Enrollment> enrollments { get; set; }
 
     }
 }
