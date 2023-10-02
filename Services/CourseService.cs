@@ -1,6 +1,6 @@
-﻿using OnlineLearningPlatformGroup5.Models;
+﻿using ElevateProjectFinal.Models;
 
-namespace OnlineLearningPlatformGroup5.Services
+namespace ElevateProjectFinal.Services
 {
     public class CourseService : ICourseService
     {
@@ -14,17 +14,17 @@ namespace OnlineLearningPlatformGroup5.Services
             throw new NotImplementedException();
         }
 
-        public Course Get(int id)
+        public Course Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Course> GetAll()
+        public List<Course> ReadAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int id, Course course)
+        public void Update(Course course)
         {
             throw new NotImplementedException();
         }

@@ -1,12 +1,15 @@
-﻿using OnlineLearningPlatformGroup5.Models;
+﻿using ElevateProjectFinal.Models;
 
-namespace OnlineLearningPlatformGroup5.Services
+namespace ElevateProjectFinal.Services
 {
     public class UserService : IUserService
     {
-        public void Create(Course course)
+        private DatabaseContext dbContext;
+        public UserService(DatabaseContext dbContext) {  this.dbContext = dbContext; }
+        public void Create(User user)
         {
-            throw new NotImplementedException();
+            dbContext.User.Add(user);
+            dbContext.SaveChanges();
         }
 
         public void Delete(int id)
@@ -14,17 +17,17 @@ namespace OnlineLearningPlatformGroup5.Services
             throw new NotImplementedException();
         }
 
-        public Course Get(int id)
+        public User Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Course> GetAll()
+        public List<User> ReadAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int id, Course course)
+        public void Update(User user)
         {
             throw new NotImplementedException();
         }

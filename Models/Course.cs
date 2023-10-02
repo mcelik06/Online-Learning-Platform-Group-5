@@ -1,19 +1,19 @@
-﻿namespace OnlineLearningPlatformGroup5.Models
+﻿namespace ElevateProjectFinal.Models
 {
     public class Course
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-
-        public int InstructorID { get; set; }
-
-        //public User Instructor { get; set; }
-        
+        public string ImageUrl { get; set; }
         public string Category { get; set; }
+        //this is pointing to Candidate Tb
+        public int UserId { get; set; }
+        public string EnrollmentCount { get; set; }
 
-        public int EnrollmentCount { get; set; }
 
-        public string ImageURL { get; set; }
+        public ICollection<Assignment> Assignments { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; }
+
     }
 }

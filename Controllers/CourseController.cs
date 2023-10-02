@@ -1,15 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineLearningPlatformGroup5.Services;
 
-namespace OnlineLearningPlatformGroup5.Controllers
+namespace ElevateProjectFinal.Controllers
 {
     public class CourseController : Controller
     {
-        private ICourseService courseService;
-        public CourseController(ICourseService courseService) { 
-            this.courseService = courseService;
-        }
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult List()
+        {
+            return View();
+        }
+
+        public IActionResult Create()
         {
             return View();
         }

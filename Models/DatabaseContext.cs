@@ -1,15 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OnlineLearningPlatformGroup5.Models
+namespace ElevateProjectFinal.Models
 {
     public class DatabaseContext : DbContext
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> opts) : base(opts) { }
-
-        public DbSet<User> Users { get; set; }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Assignment> Assignments { get; set; }
-        public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<User> User => Set<User>();
+        public DbSet<Assignment> Assignment => Set<Assignment>();
+        public DbSet<Enrollment> Enrollment => Set<Enrollment>();
+        public DbSet<Course> Course => Set<Course>();
 
     }
+
 }
+
