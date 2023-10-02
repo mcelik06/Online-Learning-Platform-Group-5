@@ -1,14 +1,13 @@
-﻿using OnlineLearningPlatformGroup5.Models;
+﻿using ElevateProjectFinal.Models;
 
-namespace OnlineLearningPlatformGroup5.Services
+namespace ElevateProjectFinal.Services
 {
     public interface ICourseService
     {
         void Create(Course course);
-        void Update(int id, Course course);
-        List<Course> GetAll();
-        Course Get(int id);
+        void Update(Course course);
         void Delete(int id);
-
+        Course Read(int id);
+        List<Course> ReadAll();
     }
 }

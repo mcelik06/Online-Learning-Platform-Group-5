@@ -1,20 +1,21 @@
+using ElevateProjectFinal.Models;
+using ElevateProjectFinal.Services;
 using Microsoft.EntityFrameworkCore;
-using OnlineLearningPlatformGroup5.Models;
-using OnlineLearningPlatformGroup5.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ICourseService, CourseService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 
-builder.Services.AddDbContext<DatabaseContext>(opts => {
-    opts.UseSqlServer(builder.Configuration["ConnectionStrings:MonitoringConnection"]);
+builder.Services.AddDbContext<DatabaseContext>(opts =>
+{
+    opts.UseSqlServer(builder.Configuration["ConnectionStrings:CalcConnection"]);
 });
-
 
 
 var app = builder.Build();
