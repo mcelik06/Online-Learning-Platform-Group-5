@@ -1,6 +1,6 @@
-﻿using ElevateProjectFinal.Models;
+﻿using OnlineLearningPlatformGroup5.Models;
 
-namespace ElevateProjectFinal.Services
+namespace OnlineLearningPlatformGroup5.Services
 {
     public interface ICourseService
     {

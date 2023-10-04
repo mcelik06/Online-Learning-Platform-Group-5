@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace ElevateProjectFinal.Models
+﻿namespace OnlineLearningPlatformGroup5.Models
 {
     public class User
     {
@@ -9,5 +7,12 @@ namespace ElevateProjectFinal.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
+
+        //Foreign Key A User can take MANY Courses
+        public ICollection<Course> Courses { get; }
+
+        //Foreign Key A User can enroll MANY times
+        public ICollection<Enrollment> Enrollments { get; }
+
     }
 }

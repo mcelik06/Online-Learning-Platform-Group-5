@@ -1,8 +1,8 @@
-﻿using ElevateProjectFinal.Models;
+﻿using OnlineLearningPlatformGroup5.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ElevateProjectFinal.Controllers
+namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class HomeController : Controller
     {

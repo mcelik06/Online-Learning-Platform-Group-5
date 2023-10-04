@@ -1,12 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineLearningPlatformGroup5.Data;
+using OnlineLearningPlatformGroup5.Models;
+using OnlineLearningPlatformGroup5.Services;
 
-namespace ElevateProjectFinal.Controllers
+namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class UserController : Controller
     {
-        public IActionResult Index()
+        private IUserService userService;
+
+        public UserController(IUserService userService)
         {
+            this.userService = userService;
+        }
+
+        public IActionResult Index()
+        {   User user = new User();
+            userService.Create(user);
             return View();
         }
+
     }
 }

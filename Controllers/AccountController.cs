@@ -1,8 +1,8 @@
-﻿using ElevateProjectFinal.Models;
-using ElevateProjectFinal.Services;
+﻿using OnlineLearningPlatformGroup5.Models;
+using OnlineLearningPlatformGroup5.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ElevateProjectFinal.Controllers
+namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class AccountController : Controller
     {
