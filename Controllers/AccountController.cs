@@ -6,6 +6,7 @@ namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class AccountController : Controller
     {
+
         IUserService userService;
         public AccountController(IUserService userService)
         {
