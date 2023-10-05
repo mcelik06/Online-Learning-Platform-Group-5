@@ -1,4 +1,4 @@
-﻿using ElevateProjectFinal.Models;
+﻿using ElevateProjectFinal.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
