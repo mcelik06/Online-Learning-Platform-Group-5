@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElevateProjectFinal.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231007011405_AddScreenNametoUser")]
-    partial class AddScreenNametoUser
+    [Migration("20231007025125_DeleteAFieldFromUser")]
+    partial class DeleteAFieldFromUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,10 +236,6 @@ namespace ElevateProjectFinal.Migrations
             modelBuilder.Entity("ElevateProjectFinal.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("ScreenName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("User");
                 });
