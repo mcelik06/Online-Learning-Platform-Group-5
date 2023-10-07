@@ -1,27 +1,22 @@
-using ElevateProjectFinal.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using OnlineLearningPlatformGroup5.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using OnlineLearningPlatformGroup5.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
-
 builder.Services.AddDbContext<DatabaseContext>(opts =>
 {
-    opts.UseSqlServer(builder.Configuration["ConnectionStrings:CalcConnection"]);
+    opts.UseSqlServer(builder.Configuration["ConnectionStrings:DbConnection"]);
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<DatabaseContext>();
-
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
 builder.Services.AddRazorPages();
-
-
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var app = builder.Build();
 

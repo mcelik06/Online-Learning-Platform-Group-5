@@ -1,4 +1,4 @@
-namespace ElevateProjectFinal.Models
+namespace OnlineLearningPlatformGroup5.Models
 {
     public class ErrorViewModel
     {

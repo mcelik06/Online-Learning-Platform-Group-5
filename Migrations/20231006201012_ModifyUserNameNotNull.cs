@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ElevateProjectFinal.Migrations
+namespace OnlineLearningPlatformGroup5.Migrations
 {
     public partial class ModifyUserNameNotNull : Migration
     {

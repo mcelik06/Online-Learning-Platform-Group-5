@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ElevateProjectFinal.Areas.Identity.Pages.Account.Manage
+namespace OnlineLearningPlatformGroup5.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {

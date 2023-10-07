@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ElevateProjectFinal.Migrations
+namespace OnlineLearningPlatformGroup5.Migrations
 {
     public partial class AddIdentityTables : Migration
     {
