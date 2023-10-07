@@ -16,7 +16,7 @@ builder.Services.AddDbContext<DatabaseContext>(opts =>
     opts.UseSqlServer(builder.Configuration["ConnectionStrings:CalcConnection"]);
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<DatabaseContext>();
 
 builder.Services.AddRazorPages();
