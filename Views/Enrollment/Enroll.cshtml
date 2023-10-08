@@ -12,31 +12,31 @@
                             <div class="contact-wrap w-100 p-md-5 p-4">
                                 <h3>Approve Enrollment</h3>
 
-                                <form method="post" asp-action="Enroll" asp-controller="Enrollment" id="contactForm" class="contactForm">
-                                    <div class="row">
-                                        <img src=@ViewBag.Course.ImageUrl alt="Course Image"/>
-                                        <div class="col-lg-12">
+                                <form method="post" asp-action="Enroll" asp-controller="Enrollment" class="contactForm">
+                                    <div>
+                                        <img src=@ViewBag.Course.ImageUrl alt="Course Image" style="height:300px; width:auto"/>
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Title</label>
                                                 <input  type="text" class="form-control" value=@ViewBag.Course.Title disabled>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Category</label>
                                                 <input type="text" class="form-control" value=@ViewBag.Course.Category disabled>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Description</label>
                                                 <input type="text" class="form-control" value=@ViewBag.Course.Description disabled>
                                             </div>
                                         </div>
                                         <div>
-                                            <input asp-for="UserId" value=@UserManager.GetUserId(User) hidden />
-                                            <input asp-for="CourseId" value=@ViewBag.Course.Id hidden />
-                                            <input asp-for="EnrollmentDate" value=@DateTime.Now hidden />
+                                            <input asp-for="UserId" value=@UserManager.GetUserId(User)   />
+                                            <input asp-for="CourseId" value=@ViewBag.Course.Id />
+                                            <input asp-for="EnrollmentDate" value=@ViewBag.Time />
                                         </div>
 
                                         <div class="col-md-12">

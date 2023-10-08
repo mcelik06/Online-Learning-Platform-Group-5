@@ -37,9 +37,11 @@ namespace OnlineLearningPlatformGroup5.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Course course)
         {
-            _context.Course.Add(course);
-            await _context.SaveChangesAsync();
-            return Redirect("List");
+          
+                _context.Course.Add(course);
+                await _context.SaveChangesAsync();
+                return Redirect("List");
+
         }
 
 

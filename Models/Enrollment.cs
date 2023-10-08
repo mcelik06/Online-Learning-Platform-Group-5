@@ -4,6 +4,7 @@ namespace OnlineLearningPlatformGroup5.Models
 {
     public class Enrollment
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         //Foreign Key AN Enrollment can be done by ONE User
@@ -17,7 +18,7 @@ namespace OnlineLearningPlatformGroup5.Models
         public Course Course { get; set; }
 
 
-        public string EnrollmentDate { set; get; }
+        public DateTime EnrollmentDate { set; get; }
 
     }
 }

@@ -22,7 +22,7 @@ namespace OnlineLearningPlatformGroup5.Models
 
         //Foreign Key A Course can contaion MANY Enrollments
         //Since we are connected two different table as MANY relation into one table, we need to change the
-        // migration file. On the forign key attributes, Ondelete property should be no action. We will change this by hand.
+        //migration file. On the forign key attributes, Ondelete property should be no action. We will change this by hand.
         public ICollection<Enrollment> Enrollments { get; }
 
     }
