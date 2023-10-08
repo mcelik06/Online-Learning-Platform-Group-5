@@ -17,7 +17,7 @@ namespace OnlineLearningPlatformGroup5.Models
         public Course Course { get; set; }
 
 
-        public string EnrollmentDate { set; get; }
+        public DateTime EnrollmentDate { set; get; }
 
     }
 }
