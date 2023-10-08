@@ -1,4 +1,6 @@
-﻿namespace OnlineLearningPlatformGroup5.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace OnlineLearningPlatformGroup5.Models
 {
     public class Course
     {
@@ -10,6 +12,8 @@
         public string EnrollmentCount { get; set; }
 
         //Foreign Key A Course can be given by ONE User
+        public string InstructorId {  get; set; }
+        [ForeignKey("InstructorId")]
         public User Instructor { get; set; }
 
 

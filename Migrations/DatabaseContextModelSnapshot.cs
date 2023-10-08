@@ -281,6 +281,7 @@ namespace OnlineLearningPlatformGroup5.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("InstructorId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Title")
@@ -394,7 +395,9 @@ namespace OnlineLearningPlatformGroup5.Migrations
                 {
                     b.HasOne("OnlineLearningPlatformGroup5.Models.User", "Instructor")
                         .WithMany("Courses")
-                        .HasForeignKey("InstructorId");
+                        .HasForeignKey("InstructorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Instructor");
                 });
