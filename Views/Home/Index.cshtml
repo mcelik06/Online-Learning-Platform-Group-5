@@ -46,7 +46,12 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Course" asp-action="List">All Courses</a></li>
-                    @if(User.IsInRole(SD.Role_Instructor)){
+                    @if (User.IsInRole(SD.Role_Student))
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Enrollment" asp-action="Index">Enrolled Courses</a></li>
+                    }
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Instructor))
+                    {
                         <li class="nav-item"><a class="nav-link" asp-controller="Course" asp-action="Create">Create Course</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Assignment" asp-action="ListCourses">Create Assignment</a></li>
                     }
@@ -64,7 +69,7 @@
                         <span class="subheading">Welcome to Academia</span>
                         <h1 class="mb-4">Best Online Education Expertise </h1>
                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a asp-controller="Account" asp-action="Create" class="btn btn-primary p-4 py-3">Get Started Now! <span class="ion-ios-arrow-round-forward"></span></a> <a asp-controller="Course" asp-action="List" class="btn btn-white p-4 py-3">View Course <span class="ion-ios-arrow-round-forward"></span></a></p>
+                        <p><a asp-controller="Identity" asp-action="Account" asp-route-id="Register" class="btn btn-primary p-4 py-3">Get Started Now! <span class="ion-ios-arrow-round-forward"></span></a> <a asp-controller="Course" asp-action="List" class="btn btn-white p-4 py-3">View Course <span class="ion-ios-arrow-round-forward"></span></a></p>
                     </div>
                 </div>
             </div>

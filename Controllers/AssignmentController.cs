@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OnlineLearningPlatformGroup5.Data;
 using OnlineLearningPlatformGroup5.Models;
 using OnlineLearningPlatformGroup5.Utility;
@@ -23,18 +24,20 @@ namespace OnlineLearningPlatformGroup5.Controllers
             List<Course> courses = _contextAssignment.Course.ToList();
             return View(courses);
         }
-        [Authorize(Roles = SD.Role_Instructor)]
-        public IActionResult Create()
+        [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
+        public IActionResult Create(int id)
         {
+            Course course = _contextAssignment.Course.FirstOrDefault(x => x.Id == id);
+            ViewBag.Course = course;
             return View();
         }
 
-        [Authorize(Roles = SD.Role_Instructor)]
+        [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
         [HttpPost]
-        public async Task<IActionResult> CreateAsync(Assignment assignment)
+        public IActionResult Create(Assignment assignment)
         {
             _contextAssignment.Assignment.Add(assignment);
-            await _contextAssignment.SaveChangesAsync();
+            _contextAssignment.SaveChanges();
             return Redirect("ListCourses");
         }
 

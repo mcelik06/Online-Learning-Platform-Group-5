@@ -1,5 +1,19 @@
 ﻿@model IEnumerable<Course>
 
+<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 pt-5 mt-5 text-center">
+                @if (!User.IsInRole(SD.Role_Admin) && !User.IsInRole(SD.Role_Instructor))
+                {
+                    <h1 class="mb-0 bread">Explore Courses</h1>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="ftco-section courses-section">
     <div class="container">
         <div class="row">
@@ -18,11 +32,13 @@
                             <p class="lec"><a href="#">@item.EnrollmentCount enrolled students!!!</a></p> 
                         </div>
                     </div>
-
-                    <div class="text-center">
-                        <a asp-controller="Course" asp-action="Enroll" asp-route-id="@item.Id" class="btn d-block btn-primary btn-outline-primary py-3">Enroll Now!</a>
+                        @if (User.IsInRole(SD.Role_Student))
+                        {
+                            <div class="text-center">
+                                <a asp-controller="Enrollment" asp-action="Enroll" asp-route-id="@item.Id" class="btn d-block btn-primary btn-outline-primary py-3">Enroll Now!</a>
+                            </div>
+                        }
                     </div>
-                </div>
             </div>
             }
             

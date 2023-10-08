@@ -2,7 +2,19 @@
 @inject UserManager<IdentityUser> UserManager
 @using Microsoft.AspNetCore.Identity
 
-
+<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 pt-5 mt-5 text-center">
+                @if (!User.IsInRole(SD.Role_Admin) && !User.IsInRole(SD.Role_Instructor))
+                {
+                    <h1 class="mb-0 bread">Explore Courses</h1>
+                }
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="ftco-section courses-section">
     <div class="container">
