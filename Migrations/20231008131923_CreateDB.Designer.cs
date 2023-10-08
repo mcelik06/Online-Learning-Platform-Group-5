@@ -12,8 +12,8 @@ using OnlineLearningPlatformGroup5.Data;
 namespace OnlineLearningPlatformGroup5.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231007231932_FinalDB")]
-    partial class FinalDB
+    [Migration("20231008131923_CreateDB")]
+    partial class CreateDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

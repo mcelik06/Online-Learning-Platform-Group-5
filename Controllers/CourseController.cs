@@ -35,10 +35,10 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
         [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
         [HttpPost]
-        public IActionResult Create(Course course)
+        public async Task<IActionResult> CreateAsync(Course course)
         {
             _context.Course.Add(course);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Redirect("List");
         }
 

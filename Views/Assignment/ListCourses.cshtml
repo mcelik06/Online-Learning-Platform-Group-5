@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Course>
+@inject UserManager<IdentityUser> UserManager
+@using Microsoft.AspNetCore.Identity
+
+
+
+<section class="ftco-section courses-section">
+    <div class="container">
+        <div class="row">
+            @foreach(var item in Model){
+                @if (@UserManager.GetUserId(User) == item.InstructorId)
+                {
+                    <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000">
+                        <div class="courses">
+                            <div class="d-flex">
+                                @* <div class="icon"><span class="flaticon-engineer"></span></div> *@
+                                <div>
+                                    <img  src="@item.ImageUrl" alt="Course Image" width="90%" height="90%">
+                                </div>
+                                <div class="text">
+                                    <h1>@item.Title</h1>
+                                    <h3>@item.Category</h3>
+                                    <div>@item.Description</div>
+                                    <p class="lec"><a href="#">@item.EnrollmentCount enrolled students!!!</a></p> 
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a asp-controller="Assignment" asp-action="Create" asp-route-id="@item.Id" class="btn d-block btn-primary btn-outline-primary py-3">Create Assignment</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            
+
+        </div>
+        <!--
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+</section>
+
+@if (!User.IsInRole(SD.Role_Student))
+{
+    <section class="ftco-section">
+        <div class="container-xl">
+            <div class="row justify-content-center">
+                <div class="col-md-8 heading-section text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
+                    <a asp-controller="Course" asp-action="Create"><span class="subheading">Create More Courses</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+}
