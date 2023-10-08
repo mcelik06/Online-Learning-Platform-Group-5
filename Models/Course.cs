@@ -1,4 +1,6 @@
-﻿namespace ElevateProjectFinal.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace OnlineLearningPlatformGroup5.Models
 {
     public class Course
     {
@@ -7,13 +9,21 @@
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string Category { get; set; }
-        //this is pointing to Candidate Tb
-        public int UserId { get; set; }
         public string EnrollmentCount { get; set; }
 
+        //Foreign Key A Course can be given by ONE User
+        public string InstructorId {  get; set; }
+        [ForeignKey("InstructorId")]
+        public User Instructor { get; set; }
 
-        public ICollection<Assignment> Assignments { get; set; }
-        public ICollection<Enrollment> Enrollments { get; set; }
+
+        //Foreign Key A Course can contain MANY Assignments
+        public ICollection<Assignment> Assignments { get; }
+
+        //Foreign Key A Course can contaion MANY Enrollments
+        //Since we are connected two different table as MANY relation into one table, we need to change the
+        // migration file. On the forign key attributes, Ondelete property should be no action. We will change this by hand.
+        public ICollection<Enrollment> Enrollments { get; }
 
     }
 }

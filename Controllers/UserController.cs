@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace ElevateProjectFinal.Controllers
+namespace OnlineLearningPlatformGroup5.Controllers
 {
     public class UserController : Controller
     {
