@@ -27,6 +27,7 @@ namespace OnlineLearningPlatformGroup5.Controllers
         [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
         public IActionResult Create(int id)
         {
+            
             Course course = _contextAssignment.Course.FirstOrDefault(x => x.Id == id);
             ViewBag.Course = course;
             return View();
@@ -34,10 +35,12 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
         [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
         [HttpPost]
-        public IActionResult Create(Assignment assignment)
+        public IActionResult Create([Bind(include:"Id,CourseId,Title,Description,DueDate")] Assignment assignment)
         {
+
             _contextAssignment.Assignment.Add(assignment);
             _contextAssignment.SaveChanges();
+
             return Redirect("ListCourses");
         }
 

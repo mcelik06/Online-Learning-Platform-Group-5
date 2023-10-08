@@ -4,6 +4,7 @@ namespace OnlineLearningPlatformGroup5.Models
 {
     public class Assignment
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         //Foreign Key AN Assignment can belong to ONE Course
@@ -14,7 +15,6 @@ namespace OnlineLearningPlatformGroup5.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
-
 
 
     }
