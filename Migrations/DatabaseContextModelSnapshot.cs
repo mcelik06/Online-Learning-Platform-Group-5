@@ -241,9 +241,8 @@ namespace OnlineLearningPlatformGroup5.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DueDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -311,6 +310,7 @@ namespace OnlineLearningPlatformGroup5.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -412,7 +412,9 @@ namespace OnlineLearningPlatformGroup5.Migrations
 
                     b.HasOne("OnlineLearningPlatformGroup5.Models.User", "User")
                         .WithMany("Enrollments")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Course");
 
