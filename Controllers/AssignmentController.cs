@@ -27,8 +27,9 @@ namespace OnlineLearningPlatformGroup5.Controllers
         [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
         public IActionResult Create(int id)
         {
-            Course course = _contextAssignment.Course.FirstOrDefault(x => x.Id == id);
-            ViewBag.Course = course;
+            ViewBag.Id = id;    
+            //Course course = _contextAssignment.Course.FirstOrDefault(x => x.Id == id);
+            //ViewBag.Course = course;
             return View();
         }
 
@@ -36,9 +37,19 @@ namespace OnlineLearningPlatformGroup5.Controllers
         [HttpPost]
         public IActionResult Create(Assignment assignment)
         {
-            _contextAssignment.Assignment.Add(assignment);
-            _contextAssignment.SaveChanges();
-            return Redirect("ListCourses");
+            //_contextAssignment.Database.ExecuteSqlRaw
+            using (var transaction = _contextAssignment.Database.BeginTransaction())
+            {
+                
+                _contextAssignment.Assignment.Add(assignment);
+                _contextAssignment.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Assignment ON");
+                _contextAssignment.SaveChanges();
+                _contextAssignment.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Assignment OFF");
+                transaction.Commit();
+            }
+            //_contextAssignment.Assignment.Add(assignment);
+            //_contextAssignment.SaveChanges();
+            return RedirectToAction("ListCourses");
         }
 
     }
