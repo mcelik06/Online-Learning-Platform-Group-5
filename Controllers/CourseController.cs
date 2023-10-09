@@ -35,17 +35,32 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
         [Authorize(Roles = SD.Role_Admin + ","+ SD.Role_Instructor)]
         [HttpPost]
-        public IActionResult Create(Course course)
+        public async Task<IActionResult> Create(Course course)
         {
-            _context.Course.Add(course);
-            _context.SaveChanges();
-            return Redirect("List");
+          
+                _context.Course.Add(course);
+                await _context.SaveChangesAsync();
+                return Redirect("List");
+
         }
 
 
         public IActionResult Enroll()
         {
             return View();
+        }
+
+        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Instructor)]
+        public IActionResult Delete(int? id)
+        {
+            Course? course = _context.Course.Find(id);
+            if(course == null)
+            {
+                return NotFound();
+            }
+            _context.Course.Remove(course);
+            _context.SaveChanges();
+            return Redirect("/Home");
         }
     }
 }

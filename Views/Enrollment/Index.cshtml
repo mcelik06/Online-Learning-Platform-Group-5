@@ -1,0 +1,54 @@
+﻿@inject UserManager<IdentityUser> UserManager
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Enrollment>
+
+
+<section class="ftco-section courses-section">
+    <div class="container">
+        <div class="row">
+            @if (@ViewBag.NonError)
+            {
+                @foreach (var item in Model)
+                {
+                    @if (@UserManager.GetUserId(User) == @item.UserId)
+                    {
+                        <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000">
+                            <div class="courses">
+                                @* <div class="d-flex">
+                                    <div class="icon"><span class="flaticon-engineer"></span></div>
+                                    <div>
+                                    <img src="@item.ImageUrl" alt="Course Image" width="90%" height="90%">
+                                </div>
+                                <div class="text">
+                                    <h1>@item.Title</h1>
+                                    <h3>@item.Category</h3>
+                                    <div>@item.Description</div>
+                                    <p class="lec"><a href="#">@item.EnrollmentCount enrolled students!!!</a></p>
+                                </div>
+                                </div> *@
+
+                                <div class="text-center">
+                                    <a asp-controller="Assignment" asp-action="Create" asp-route-id="@item.Id" class="btn d-block btn-primary btn-outline-primary py-3">Go to Course</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            } else
+            {
+                <div class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100" data-aos-duration="1000">
+                    <div class="courses">
+                        <div class="d-flex">
+                            <div class="text">
+                                <h1>You did not enroll to any course</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+                
+        </div>     
+    </div>
+</section>
