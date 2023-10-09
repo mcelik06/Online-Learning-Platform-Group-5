@@ -14,7 +14,7 @@
 
                                 <form method="post" asp-action="Enroll" asp-controller="Enrollment" class="contactForm">
                                     <div>
-                                        <img src=@ViewBag.Course.ImageUrl alt="Course Image" style="height:300px; width:auto"/>
+                                        @*<img src=@ViewBag.Course.ImageUrl alt="Course Image" style="height:300px; width:auto"/>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Title</label>
@@ -32,11 +32,11 @@
                                                 <label>Course Description</label>
                                                 <input type="text" class="form-control" value=@ViewBag.Course.Description disabled>
                                             </div>
-                                        </div>
+                                        </div>*@
                                         <div>
-                                            <input asp-for="UserId" value=@UserManager.GetUserId(User)   />
-                                            <input asp-for="CourseId" value=@ViewBag.Course.Id />
-                                            <input asp-for="EnrollmentDate" value=@ViewBag.Time />
+                                            <input asp-for="UserId" value=@UserManager.GetUserId(User) hidden/>
+                                            <input asp-for="CourseId" value=@ViewBag.Id hidden/>
+                                            <input asp-for="EnrollmentDate" value=@ViewBag.Time hidden/>
                                         </div>
 
                                         <div class="col-md-12">

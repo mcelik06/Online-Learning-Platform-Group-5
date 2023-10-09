@@ -18,15 +18,16 @@ namespace OnlineLearningPlatformGroup5.Controllers
         public IActionResult Index()
         {
             //Include
-            List<Enrollment> enrollments = _context.Enrollment.Include(e => e.CourseId).ToList();
+            List<Enrollment> enrollments = _context.Enrollment.ToList();
 
             return View(enrollments);
         }
 
         public IActionResult Enroll(int id)
         {
-            Course course = _context.Course.FirstOrDefault(x => x.Id == id);
-            ViewBag.Course = course;
+            //Course course = _context.Course.FirstOrDefault(x => x.Id == id);
+            //ViewBag.Course = course;
+            ViewBag.Id = id;
             DateTime now = DateTime.Now;
             ViewBag.Time = now.ToString("yyyy-MM-dd HH:mm:ss");
             return View();
@@ -48,7 +49,7 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
             //_context.Enrollment.Add(enrollment);
             //_context.SaveChanges();
-            return Redirect("Index");
+            return Redirect("/Home/Index");
         }
         //[Bind("UserId,CourseId,EnrollmentDate")]
     }
