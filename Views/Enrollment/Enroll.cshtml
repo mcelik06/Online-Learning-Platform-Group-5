@@ -34,9 +34,9 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <input asp-for="UserId" value=@UserManager.GetUserId(User)   />
-                                            <input asp-for="CourseId" value=@ViewBag.Course.Id />
-                                            <input asp-for="EnrollmentDate" value=@ViewBag.Time />
+                                            <input asp-for="UserId" value=@UserManager.GetUserId(User) hidden  />
+                                            <input asp-for="CourseId" value=@ViewBag.Course.Id hidden />
+                                            <input asp-for="EnrollmentDate" value=@ViewBag.Time hidden />
                                         </div>
 
                                         <div class="col-md-12">

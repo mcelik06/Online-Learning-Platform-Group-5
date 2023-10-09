@@ -23,7 +23,7 @@
                     <div class="d-flex">
                         @* <div class="icon"><span class="flaticon-engineer"></span></div> *@
                         <div>
-                         <img  src="@item.ImageUrl" alt="Course Image" width="90%" height="90%">
+                                <img src="@item.ImageUrl" alt="Course Image" width="100px" height="auto">
                         </div>
                         <div class="text">
                                 <h1>@item.Title</h1>
@@ -36,6 +36,12 @@
                         {
                             <div class="text-center">
                                 <a asp-controller="Enrollment" asp-action="Enroll" asp-route-id="@item.Id" class="btn d-block btn-primary btn-outline-primary py-3">Enroll Now!</a>
+                            </div>
+                        }
+                        else if (User.IsInRole(SD.Role_Instructor) || User.IsInRole(SD.Role_Admin))
+                        {
+                            <div class="text-center">
+                                <a asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id" class="btn d-block btn-primary btn-outline-primary py-3">Delete Course!</a>
                             </div>
                         }
                     </div>

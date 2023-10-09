@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using OnlineLearningPlatformGroup5.Data;
 using OnlineLearningPlatformGroup5.Models;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace OnlineLearningPlatformGroup5.Controllers
 {
@@ -17,10 +18,16 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
         public IActionResult Index()
         {
-            //Include
-            List<Enrollment> enrollments = _context.Enrollment.Include(e => e.CourseId).ToList();
-
-            return View(enrollments);
+            List<Enrollment> enrollments = _context.Enrollment.ToList();
+            if (enrollments == null) 
+            {
+                ViewBag.NonError = false;
+                return View();
+            } else
+            {
+                ViewBag.NonError = true;
+                return View(enrollments);
+            }
         }
 
         public IActionResult Enroll(int id)
@@ -48,7 +55,7 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
             //_context.Enrollment.Add(enrollment);
             //_context.SaveChanges();
-            return Redirect("Index");
+            return Redirect("/Home");
         }
         //[Bind("UserId,CourseId,EnrollmentDate")]
     }

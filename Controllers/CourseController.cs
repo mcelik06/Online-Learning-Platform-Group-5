@@ -49,5 +49,18 @@ namespace OnlineLearningPlatformGroup5.Controllers
         {
             return View();
         }
+
+        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Instructor)]
+        public IActionResult Delete(int? id)
+        {
+            Course? course = _context.Course.Find(id);
+            if(course == null)
+            {
+                return NotFound();
+            }
+            _context.Course.Remove(course);
+            _context.SaveChanges();
+            return Redirect("/Home");
+        }
     }
 }
