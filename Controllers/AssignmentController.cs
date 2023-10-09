@@ -49,7 +49,7 @@ namespace OnlineLearningPlatformGroup5.Controllers
             }
             //_contextAssignment.Assignment.Add(assignment);
             //_contextAssignment.SaveChanges();
-            return RedirectToAction("ListCourses");
+            return Redirect("/Home");
         }
 
     }

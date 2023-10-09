@@ -14,25 +14,25 @@
 
                                 <form method="post" asp-action="Enroll" asp-controller="Enrollment" class="contactForm">
                                     <div>
-                                        @*<img src=@ViewBag.Course.ImageUrl alt="Course Image" style="height:300px; width:auto"/>
+                                        <img src=@ViewBag.ImgUrl alt="Course Image" style="height:300px; width:auto"/>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Title</label>
-                                                <input  type="text" class="form-control" value=@ViewBag.Course.Title disabled>
+                                                <input  type="text" class="form-control" value=@ViewBag.Title disabled>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Category</label>
-                                                <input type="text" class="form-control" value=@ViewBag.Course.Category disabled>
+                                                <input type="text" class="form-control" value=@ViewBag.Category disabled>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Course Description</label>
-                                                <input type="text" class="form-control" value=@ViewBag.Course.Description disabled>
+                                                <input type="text" class="form-control" value=@ViewBag.Desc disabled>
                                             </div>
-                                        </div>*@
+                                        </div>
                                         <div>
                                             <input asp-for="UserId" value=@UserManager.GetUserId(User) hidden/>
                                             <input asp-for="CourseId" value=@ViewBag.Id hidden/>

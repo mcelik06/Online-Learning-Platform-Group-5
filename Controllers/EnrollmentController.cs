@@ -25,8 +25,11 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
         public IActionResult Enroll(int id)
         {
-            //Course course = _context.Course.FirstOrDefault(x => x.Id == id);
-            //ViewBag.Course = course;
+            Course course = _context.Course.FirstOrDefault(x => x.Id == id);
+            ViewBag.Title = course.Title;
+            ViewBag.Category = course.Category;
+            ViewBag.Desc = course.Description;
+            ViewBag.ImgUrl = course.ImageUrl;
             ViewBag.Id = id;
             DateTime now = DateTime.Now;
             ViewBag.Time = now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -49,7 +52,7 @@ namespace OnlineLearningPlatformGroup5.Controllers
 
             //_context.Enrollment.Add(enrollment);
             //_context.SaveChanges();
-            return Redirect("/Home/Index");
+            return Redirect("/Home");
         }
         //[Bind("UserId,CourseId,EnrollmentDate")]
     }
